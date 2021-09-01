@@ -1,10 +1,11 @@
-const str = new String("자바스크립트");
-const number = new Number(200);
-const bool = new Boolean(true);
-const date = new Date();
-const map = new Map();
-const set = new Set();
+const str1 = "자바스크립트 200제";
+const str2 = new String("자바스크립트 200제");
 
-console.log(Math.PI);
-console.log(Date.parse("2021-09-01"));
-console.log(JSON.parse("{}"));
+console.log(typeof str1);
+console.log(typeof str2);
+
+console.log(str1 === "자바스크립트 200제");
+console.log(str2 === new String("자바스크립트 200제"));
+
+console.log(str1.valueOf());
+console.log(str2.valueOf());
