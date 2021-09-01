@@ -1,30 +1,14 @@
-class Product {
-  static build(name, price) {
-    const id = Math.floor(Math.random() * 1000);
-    return new Product(id, name, price);
+class ProductWithCode {
+  static get CODE_PREFIX() {
+    return "PRODUCT-";
   }
 
-  static getTaxPrice(product) {
-    return product.price * 1.1;
-  }
-
-  constructor(id, name, price) {
+  constructor(id) {
     this.id = id;
-    this.name = name;
-    this.price = price;
+    this.code = ProductWithCode.CODE_PREFIX + id;
   }
 }
 
-class DeposableProduct extends Product {
-  depose() {
-    this.deposed = true;
-  }
-}
-
-const gum = Product.build("껌", 1000);
-console.log(gum);
-
-const clothes = new DeposableProduct(1, "옷", 2000);
-const taxPrice = DeposableProduct.getTaxPrice(clothes);
-console.log(clothes);
-console.log(taxPrice);
+const product1 = new ProductWithCode("001");
+console.log(ProductWithCode.CODE_PREFIX);
+console.log(product1.code);
