@@ -1,21 +1,24 @@
-class Cart {
-  constructor() {
-    this.store = {};
+class Chart {
+  constructor(width, height) {
+    this.width = width;
+    this.height = height;
   }
 
-  addProduct(product) {
-    this.store[product.id] = product;
-  }
-
-  getProduct(id) {
-    return this.store[id];
+  drawLine() {
+    console.log("draw line");
   }
 }
 
-const cart1 = new Cart();
+class BarChart extends Chart {
+  constructor(width, height) {
+    super(width, height);
+  }
 
-cart1.addProduct({ id: 1, name: "노트북" });
-console.log(cart1.store);
+  draw() {
+    this.drawLine();
+    console.log(`draw ${this.width} X ${this.height} barChart`);
+  }
+}
 
-const p = cart1.getProduct(1);
-console.log(p);
+const barchart1 = new BarChart(100, 100);
+barchart1.draw();
