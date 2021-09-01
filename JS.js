@@ -1,20 +1,21 @@
-function Teacher(name, age, subject) {
-  this.name = name;
-  this.age = age;
-  this.subject = subject;
-  this.teach = function (student) {
-    console.log(`${student}에게 ${subject}를 가르칩니다.`);
-  };
+class Cart {
+  constructor() {
+    this.store = {};
+  }
+
+  addProduct(product) {
+    this.store[product.id] = product;
+  }
+
+  getProduct(id) {
+    return this.store[id];
+  }
 }
 
-const jay = new Teacher("jay", 30, "JavaScript");
-console.log(jay);
-jay.teach("bbo");
+const cart1 = new Cart();
 
-console.log(jay.constructor);
-console.log(jay instanceof Teacher);
+cart1.addProduct({ id: 1, name: "노트북" });
+console.log(cart1.store);
 
-const jay2 = Teacher("jay", 25, "Java");
-console.log(jay2);
-console.log(age);
-console.log(subject);
+const p = cart1.getProduct(1);
+console.log(p);
