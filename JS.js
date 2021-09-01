@@ -1,24 +1,30 @@
-class Chart {
-  constructor(width, height) {
-    this.width = width;
-    this.height = height;
+class Product {
+  static build(name, price) {
+    const id = Math.floor(Math.random() * 1000);
+    return new Product(id, name, price);
   }
 
-  drawLine() {
-    console.log("draw line");
-  }
-}
-
-class BarChart extends Chart {
-  constructor(width, height) {
-    super(width, height);
+  static getTaxPrice(product) {
+    return product.price * 1.1;
   }
 
-  draw() {
-    this.drawLine();
-    console.log(`draw ${this.width} X ${this.height} barChart`);
+  constructor(id, name, price) {
+    this.id = id;
+    this.name = name;
+    this.price = price;
   }
 }
 
-const barchart1 = new BarChart(100, 100);
-barchart1.draw();
+class DeposableProduct extends Product {
+  depose() {
+    this.deposed = true;
+  }
+}
+
+const gum = Product.build("껌", 1000);
+console.log(gum);
+
+const clothes = new DeposableProduct(1, "옷", 2000);
+const taxPrice = DeposableProduct.getTaxPrice(clothes);
+console.log(clothes);
+console.log(taxPrice);
