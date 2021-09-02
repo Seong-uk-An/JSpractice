@@ -1,19 +1,10 @@
-const str = "Carpe diem, seize the day";
+const festa = ["mang"];
+festa.push("chimmy");
+festa.push("tata");
+festa.push("cooky");
+festa.push("shooky");
+festa.push("koya");
+festa.push("rj");
 
-const arr = ["Carpe", "diem", "seize", "the", "day"];
-const howManyHasE = (arr) => {
-  let count = 0;
-  arr.forEach((str) => {
-    if (str.indexOf("e") > -1) count++;
-  });
-  return count;
-};
-
-console.log(howManyHasE(arr));
-
-let count = 0;
-arr.map((str) => {
-  if (str.indexOf("e") > -1) count++;
-});
-
-console.log(count);
+console.log(festa);
+festa.map((name) => console.log(name));
