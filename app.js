@@ -1,7 +1,19 @@
-const arr = ["short", "long sentence, it is not appropriate"];
+const str = "Carpe diem, seize the day";
 
-arr.map((s) => {
-  if (s.length < 10) {
-    console.log(s);
-  }
+const arr = ["Carpe", "diem", "seize", "the", "day"];
+const howManyHasE = (arr) => {
+  let count = 0;
+  arr.forEach((str) => {
+    if (str.indexOf("e") > -1) count++;
+  });
+  return count;
+};
+
+console.log(howManyHasE(arr));
+
+let count = 0;
+arr.map((str) => {
+  if (str.indexOf("e") > -1) count++;
 });
+
+console.log(count);
