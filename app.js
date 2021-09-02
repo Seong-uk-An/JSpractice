@@ -1,9 +1,16 @@
-const prevList = [1, 2, 3];
-const currentList = [4, 5, 6];
-const nextList = [7, 8, 9];
+const arr = [
+  { id: 0, name: "혜림", age: 6 },
+  { id: 1, name: "현일", age: 3 },
+  { id: 2, name: "현아", age: 5 },
+  { id: 3, name: "우림", age: 2 },
+];
 
-console.log(prevList.concat(currentList));
-console.log(prevList.concat(currentList, nextList));
+const arr2 = arr.map((el) => {
+  el.age++;
+  return el;
+});
 
-console.log(["배열"].concat("합치기"));
-console.log(["배열"].concat("합치기", "javascript200"));
+const arr3 = arr.map((el) => el.name);
+
+console.log(arr2);
+console.log(arr3);
