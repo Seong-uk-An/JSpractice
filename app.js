@@ -1,19 +1,9 @@
-const ship = {
-  max: 4,
-  passengers: [],
-  onBoard: function (name) {
-    if (this.passengers.length === 4) {
-      console.log(`This ship is full. ${name} can not board this ship.`);
-    } else {
-      this.passengers.push(name);
-      console.log(`${name} boarded.`);
-    }
-  },
-};
+const prevList = [1, 2, 3];
+const currentList = [4, 5, 6];
+const nextList = [7, 8, 9];
 
-ship.onBoard("a");
-ship.onBoard("b");
-ship.onBoard("c");
-ship.onBoard("d");
-ship.onBoard("e");
-console.log(ship.passengers);
+console.log(prevList.concat(currentList));
+console.log(prevList.concat(currentList, nextList));
+
+console.log(["배열"].concat("합치기"));
+console.log(["배열"].concat("합치기", "javascript200"));
