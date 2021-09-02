@@ -1,5 +1,10 @@
-const numArr = [1, 2, 3, 4, 5];
+const obj = {
+  movie: "Sunny",
+  music: "Like Sugar",
+  style: "Retro",
+  price: Infinity,
+};
 
-const result = numArr.reduce((acc, el) => {
-  return acc + el;
-}, 0);
+const arr = Object.keys(obj);
+
+console.log(arr);
