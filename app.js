@@ -1,10 +1,19 @@
-const festa = ["mang"];
-festa.push("chimmy");
-festa.push("tata");
-festa.push("cooky");
-festa.push("shooky");
-festa.push("koya");
-festa.push("rj");
+const ship = {
+  max: 4,
+  passengers: [],
+  onBoard: function (name) {
+    if (this.passengers.length === 4) {
+      console.log(`This ship is full. ${name} can not board this ship.`);
+    } else {
+      this.passengers.push(name);
+      console.log(`${name} boarded.`);
+    }
+  },
+};
 
-console.log(festa);
-festa.map((name) => console.log(name));
+ship.onBoard("a");
+ship.onBoard("b");
+ship.onBoard("c");
+ship.onBoard("d");
+ship.onBoard("e");
+console.log(ship.passengers);
