@@ -1,13 +1,10 @@
-const str = "hello";
+const products = [{ name: "가방" }, { name: "노트북" }];
 
-for (const item of str) {
-  console.log(item);
+for (const item of products) {
+  console.log(item.name);
 }
 
-const iter = str[Symbol.iterator]();
-console.log(iter.next());
-console.log(iter.next());
-console.log(iter.next());
+const iter = products[Symbol.iterator]();
 console.log(iter.next());
 console.log(iter.next());
 console.log(iter.next());
