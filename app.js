@@ -1,19 +1,11 @@
-const jsonStr =
-  '{"drama":"PET","season":2017,"casting":' +
-  '["koyuki","masumoto jun"],"charactor":["simure","momo"]}';
+const str = "To lose your path is the way to find that path";
 
-console.log(JSON.parse(jsonStr));
-console.log(
-  JSON.parse(jsonStr, (key, value) => {
-    if (key === "season") val = 2003;
-    return val;
-  })
-);
+const regex1 = /path/;
+const regex2 = /q/;
+const regex3 = /t/g;
+const regex4 = /t/gi;
 
-console.log(JSON.parse("13.1"));
-console.log(typeof JSON.parse("13.1"));
-console.log(JSON.parse("false"));
-console.log(typeof JSON.parse("false"));
-
-console.log(JSON.parse("Kiss Carnival"));
-console.log(JSON.parse("[2003, 2017"));
+console.log(str.search(regex1));
+console.log(str.search(regex2));
+console.log(str.search(regex3));
+console.log(str.search(regex4));
