@@ -1,23 +1,19 @@
-let obj = {};
+const jsonStr =
+  '{"drama":"PET","season":2017,"casting":' +
+  '["koyuki","masumoto jun"],"charactor":["simure","momo"]}';
 
-obj.title = "IDOL";
-obj = Object.freeze(obj);
-// obj.title = "Euphoria";
+console.log(JSON.parse(jsonStr));
+console.log(
+  JSON.parse(jsonStr, (key, value) => {
+    if (key === "season") val = 2003;
+    return val;
+  })
+);
 
-console.log(obj);
+console.log(JSON.parse("13.1"));
+console.log(typeof JSON.parse("13.1"));
+console.log(JSON.parse("false"));
+console.log(typeof JSON.parse("false"));
 
-const changeUntilNum = (obj, num) => {
-  "use strict";
-
-  while (true) {
-    console.log(obj);
-
-    if (obj.age >= num) {
-      obj = Object.freeze(obj);
-    }
-    obj.age += 1;
-  }
-};
-
-let profile = { name: "지연", age: 25 };
-changeUntilNum(profile, 30);
+console.log(JSON.parse("Kiss Carnival"));
+console.log(JSON.parse("[2003, 2017"));
