@@ -1,10 +1,12 @@
-const numRegExp = /[0-9]+/;
-const phoneRegExp = /\d{3}-\d{3,4}-\d{4}$/;
-const emailRegExp = /^([-_.]?[0-9a-zA-Z]{6,13})+\@([0-9a-z]+)\.([a-z]{2,3})$/i;
+const str = "Java is not in Javascript";
 
-console.log(numRegExp.test(12345));
-console.log(numRegExp.test("test"));
-console.log(phoneRegExp.test("010-3003-0046"));
-console.log(phoneRegExp.test("02-8844-1234"));
-console.log(emailRegExp.test("test123@javascript.org"));
-console.log(emailRegExp.test("test-javascript"));
+const result1 = /java/gi.exec(str);
+console.log(result1[0]);
+console.log(result1.index);
+console.log(result1.input);
+
+const nums = '"1", "2", "3"';
+const regex = /\d+/g;
+while ((result2 = regex.exec(nums))) {
+  console.log(result2, regex.lastIndex);
+}
