@@ -1,10 +1,11 @@
-const products = [{ name: "가방" }, { name: "노트북" }];
+const map = new Map();
 
-for (const item of products) {
-  console.log(item.name);
-}
+map.set("one", 1);
+map.set("two", 2);
 
-const iter = products[Symbol.iterator]();
-console.log(iter.next());
-console.log(iter.next());
-console.log(iter.next());
+console.log(map.get("one"));
+console.log(map.has("two"));
+map.delete("one");
+
+console.log(map.has("one"));
+console.log(map.has("two"));
