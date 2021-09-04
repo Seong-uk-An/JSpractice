@@ -1,11 +1,11 @@
 const str = "To lose your path is the way to find that path";
 
-const regex1 = /path/;
-const regex2 = /q/;
-const regex3 = /t/g;
-const regex4 = /t/gi;
+const sensitiveCaseRegex = /to/;
+const ignoreAllCaseRegex = /to/gi;
+const findRangeRegex = /([a-f])\w+/;
+const findAllRangeRegex = /([a-f])\w+/g;
 
-console.log(str.search(regex1));
-console.log(str.search(regex2));
-console.log(str.search(regex3));
-console.log(str.search(regex4));
+console.log(str.match(sensitiveCaseRegex));
+console.log(str.match(ignoreAllCaseRegex));
+console.log(str.match(findRangeRegex));
+console.log(str.match(findAllRangeRegex));
