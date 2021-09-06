@@ -1,13 +1,33 @@
-const array = [1, 2, 3, 4];
+function doJob(name, person) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (person.stamina > 50) {
+        person.stamina += 30;
+        person.stamina = person.stamina + 30;
+        resolve({
+          result: `${name} success`,
+        });
+      } else {
+        reject(new Error(`${name} failed`));
+      }
+    }, 1000);
+  });
+}
 
-const fir = array[0];
-const sec = array[1];
-const thi = array[2];
-const fou = array[3];
-console.log(fir, sec, thi, fou);
+const harin = { stamina: 100 };
 
-const [f, s, t, fo] = array;
-console.log(f, s, t, fo);
+const execute = async function () {
+  try {
+    let v = await doJob("work", harin);
+    console.log(v.result);
+    v = await doJob("study", harin);
+    console.log(v.result);
+    v = await doJob("work", harin);
+    console.log(v.result);
+    v = await doJob("study", harin);
+  } catch (e) {
+    console.log(e);
+  }
+};
 
-const [one, two, ...rest] = array;
-console.log(one, two, rest);
+execute();
