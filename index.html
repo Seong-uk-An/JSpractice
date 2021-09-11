@@ -2,37 +2,35 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DOM 이해하기</title>
+    <link rel="stylesheet" href="css/dom-navigation.css" />
   </head>
   <body>
-    <div id="div1">hello DOM</div>
+    <h1>국내여행지</h1>
     <ul>
-      <li>list item1</li>
-      <li>list item2</li>
+      <li>서울</li>
+      <!-- <li>수원</li> -->
+      <li>제주</li>
+      <li>속초</li>
+      <li>부산</li>
     </ul>
     <script>
-      const div1El = document.getElementById("div1");
-      console.log(div1El.innerHTML);
+      const bodyEl = document.body;
+      const bodyElChildren = bodyEl.children;
+      console.log(bodyElChildren); //h1, ul
 
-      console.log(div1El.nodeType);
-      console.log(div1El.nodeType === Node.ELEMENT_NODE);
+      const cityList = bodyElChildren[1];
 
-      console.log(div1El.constructor);
-      console.log(div1El instanceof HTMLDivElement);
-      console.log(div1El instanceof HTMLElement);
-      console.log(div1El instanceof Element);
-      console.log(div1El instanceof Node);
-      console.log(Element.prototype);
-      console.log(div1El.tagName);
-
-      const div1El2 = document.querySelector("#div1");
-      console.log(div1El2.innerHTML);
-
-      const liEls = document.querySelectorAll("ul li");
-      console.log(liEls.item(0).innerHTML);
-      console.log(liEls.item(1).textContent);
+      console.log(cityList.children.length); //4
+      const item2 = cityList.children.item(1);
+      console.log(item2); // 제주
+      console.log(item2.previousElementSibling); //  ?
+      console.log(item2.previousSibling);
+      console.log(item2.previousSibling.previousSibling);
+      console.log(cityList.childNodes);
+      console.log(item2.firstChild);
+      console.log(item2.lastChild);
+      console.log(item2.parentElement);
     </script>
   </body>
 </html>
