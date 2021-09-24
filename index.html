@@ -1,35 +1,54 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>DOM 이해하기</title>
-    <link rel="stylesheet" href="css/dom-navigation.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .notification-bar {
+        padding: 10px;
+        border: 1px solid black;
+        background-color: yellow;
+        position: absolute;
+      }
+    </style>
   </head>
   <body>
-    <h1>국내여행지</h1>
-    <ul>
-      <li>서울</li>
-      <!-- <li>수원</li> -->
-      <li>제주</li>
-      <li>속초</li>
-      <li>부산</li>
-    </ul>
     <script>
-      const bodyEl = document.body;
-      const bodyElChildren = bodyEl.children;
-      console.log(bodyElChildren); //h1, ul
+      class NotificationBar {
+        constructor() {
+          // const {barE1} = this
+          this.barE1 = document.createElement("div");
+          this.barE1.style.display = "none";
+          this.barE1.classList.add("notification-bar");
+          document.body.appendChild(this.barE1);
+        }
+        show(message, position = "top") {
+          if (position === "top") {
+            this.barE1.style.top = "10px";
+            this.barE1.style.bottom = "";
+          }
+          if (position === "bottom") {
+            this.barE1.style.top = "";
+            this.barE1.style.bottom = "10px";
+          }
+          this.barE1.style.left = "10px";
+          this.barE1.style.right = "10px";
+          this.barE1.style.display = "";
+          this.barE1.innerHTML = message;
+        }
+      }
 
-      const cityList = bodyElChildren[1];
+      const noti = new NotificationBar();
 
-      console.log(cityList.children.length); //4
-      const item2 = cityList.children.item(1);
-      console.log(item2); // 제주
-      console.log(item2.previousElementSibling); //  ?
-      console.log(item2.previousSibling);
-      console.log(item2.previousSibling.previousSibling);
-      console.log(cityList.childNodes);
-      console.log(item2.firstChild);
-      console.log(item2.lastChild);
+      setTimeout(() => {
+        noti.show("welcome to JavaScript 200");
+      }, 1000);
+
+      setTimeout(() => {
+        noti.show("welcome to JavaScript 200", "bottom");
+      }, 2000);
     </script>
   </body>
 </html>
