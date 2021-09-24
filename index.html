@@ -5,22 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./event-flow.css" />
+    <style>
+      #prevent {
+        border: 1px solid red;
+      }
+    </style>
   </head>
   <body>
-    <h1>DOM 이벤트 플로우 예제</h1>
-    <div id="element1" class="box">
-      <div id="element2" class="box2">버블링</div>
-    </div>
-    <div id="element3" class="box">
-      <div id="element4" class="box2">캡쳐링</div>
-    </div>
+    <p>
+      일반적인 글
+      <span id="prevent">이벤트를 막은 글</span>
+      <br />
+      일반적인 글2
+    </p>
     <script>
-      element1.addEventListener("click", (e) => console.log("1"));
-      element2.addEventListener("click", (e) => console.log("2"));
-
-      element3.addEventListener("click", (e) => console.log("3"), true);
-      element4.addEventListener("click", (e) => console.log("4"));
+      const normalPE1 = document.querySelector("p");
+      const eventPreventedE1 = document.querySelector("#prevent");
+      normalPE1.addEventListener("contextmenu", function () {
+        console.log("context 호출");
+      });
+      eventPreventedE1.addEventListener("contextmenu", function (event) {
+        console.log("이벤트 막은 글 클릭");
+        event.stopPropagation();
+        event.preventDefault();
+      });
     </script>
   </body>
 </html>
