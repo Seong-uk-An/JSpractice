@@ -5,31 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script>
-      const inputContainer = document.getElementById("input-container");
-      console.log(inputContainer);
-
-      document.addEventListener("DOMContentLoaded", (e) => {
-        const inputContainer = document.getElementById("input-container");
-        console.log(inputContainer);
-
-        const inputE1 = inputContainer.querySelector("input");
-        inputE1.addEventListener("keydown", (e) => {
-          console.log(`keyCode : ${e.keyCode}`);
-        });
-
-        const buttonE1 = inputContainer.querySelector("button");
-        buttonE1.addEventListener("click", (e) => {
-          console.log(e.target);
-          console.log(`input value : ${inputE1.value}`);
-        });
-      });
-    </script>
+    <link rel="stylesheet" href="./event-flow.css" />
   </head>
   <body>
-    <div id="input-container">
-      <input type="text" />
-      <button>버튼</button>
+    <h1>DOM 이벤트 플로우 예제</h1>
+    <div id="element1" class="box">
+      <div id="element2" class="box2">버블링</div>
     </div>
+    <div id="element3" class="box">
+      <div id="element4" class="box2">캡쳐링</div>
+    </div>
+    <script>
+      element1.addEventListener("click", (e) => console.log("1"));
+      element2.addEventListener("click", (e) => console.log("2"));
+
+      element3.addEventListener("click", (e) => console.log("3"), true);
+      element4.addEventListener("click", (e) => console.log("4"));
+    </script>
   </body>
 </html>
